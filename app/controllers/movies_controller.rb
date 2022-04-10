@@ -2,7 +2,6 @@ class MoviesController < ApplicationController
   def new
     @the_movie = Movie.new
 
-    render "movies/new"
   end
 
   def index
@@ -15,12 +14,11 @@ class MoviesController < ApplicationController
         render json: @list_of_movies
       end
 
-      format.html do
-        render "movies/index"
-      end
+      format.html
+      # format.html do
+      #   render "movies/index"
+      # end
     end
-
-    # render "movies/index"
   end
 
   def show
@@ -32,7 +30,6 @@ class MoviesController < ApplicationController
 
     @the_movie = Movie.find(params.fetch(:id))
 
-    render "movies/show"
   end
 
   def create
@@ -44,7 +41,8 @@ class MoviesController < ApplicationController
       @the_movie.save
       redirect_to("/movies", { :notice => "Movie created successfully." })
     else
-      render "movies/new"
+      # render "movies/new" --->>>> folder name matches the name of the controller but function name doesn't match the template name so we can drop folder name
+      render "new"
     end
   end
 
@@ -55,7 +53,6 @@ class MoviesController < ApplicationController
 
     @the_movie = matching_movies.first
 
-    render "movies/edit"
   end
 
   def update
