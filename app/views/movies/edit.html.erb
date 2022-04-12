@@ -4,6 +4,27 @@
   <p style="color: red;"><%= message %></p>
 <% end %>
 
+
+
+<%= form_with(model: @movie, method: :patch) do |form| %>
+  <div>
+    <%= form.label :title %>
+
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+
+    <%= form.text_area :description, rows: 3 %>
+  </div>
+
+  <%= form.button %>
+<% end %>
+
+
+
+
 <%= form_with(url: movie_path(@movie), method: :patch) do %>
 <div>
     <%= label_tag :title %>
@@ -20,6 +41,3 @@
   <%= button_tag "Update movie" %>
 <% end %>
 
-
-  
-</form>
