@@ -22,22 +22,3 @@
   <%= form.button %>
 <% end %>
 
-
-
-
-<%= form_with(url: movie_path(@movie), method: :patch) do %>
-<div>
-    <%= label_tag :title %>
-
-    <%= text_field_tag :title, @movie.title %>
-  </div>
-
-  <div>
-    <%= label_tag :description %>
-
-    <%= text_area_tag :description, @movie.description, id: "description", rows: "3" %>
-  </div>
-
-  <%= button_tag "Update movie" %>
-<% end %>
-
